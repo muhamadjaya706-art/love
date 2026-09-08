@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk inu lia ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0; min-height:100vh; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+}
+.card{
+  position:relative; z-index:2; width:min(90%,380px);
+  padding:35px 25px; text-align:center; color:white;
+  background:rgba(255,255,255,.16); backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.3); border-radius:25px;
+  box-shadow:0 15px 40px rgba(0,0,0,.2);
+}
+.heart{
+  font-size:75px; animation:pulse 1s infinite;
+}
+h1{margin:10px 0;font-size:30px}
+p{font-size:17px;line-height:1.6}
+button{
+  border:0; border-radius:30px; padding:13px 25px;
+  font-size:16px; cursor:pointer; color:#ff4f81;
+  background:white; font-weight:bold;
+}
+.floating{
+  position:fixed; bottom:-40px; pointer-events:none;
+  animation:up linear forwards; z-index:1;
+}
+@keyframes pulse{50%{transform:scale(1.18)}}
+@keyframes up{
+  to{transform:translateY(-110vh) rotate(360deg);opacity:0}
+}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="heart">❤️</div>
+  <h1>Untuk Kamu</h1>
+  <p>Ada sesuatu yang ingin aku sampaikan...</p>
+  <button onclick="showLove()">Klik di sini ❤️</button>
+  <p id="msg"></p>
+</div>
+
+<script>
+function love(){
+  const h=document.createElement('div');
+  h.className='floating';
+  h.textContent=['❤️','💕','💖','💗','💘'][Math.floor(Math.random()*5)];
+  h.style.left=Math.random()*100+'vw';
+  h.style.fontSize=(20+Math.random()*35)+'px';
+  h.style.animationDuration=(3+Math.random()*3)+'s';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6500);
+}
+setInterval(love,180);
+
+function showLove(){
+  document.getElementById('msg').textContent='Semoga kamu selalu tersenyum ❤️';
+  for(let i=0;i<25;i++) setTimeout(love,i*50);
+}
+</script>
+</body>
+</html>
